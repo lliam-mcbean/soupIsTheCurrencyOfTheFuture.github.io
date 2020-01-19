@@ -66,6 +66,9 @@ function init() {
 
     document.getElementById("score-board").innerHTML = 0;
 
+    document.querySelector('.game-max').style.display = 'block';
+    document.querySelector('.scoreboard').style.display = 'none';
+
 };
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
@@ -105,6 +108,11 @@ document.querySelector('.btn-input').addEventListener('click', function() {
     
     gameLength = document.getElementById("user-input").value;
     document.getElementById("score-board").innerHTML = gameLength;
+
+    // max score display
+
+    document.querySelector('.game-max').style.display = 'none';
+    document.querySelector('.scoreboard').style.display = 'block';
     
 });
 
@@ -118,6 +126,7 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
         if (scores[activePlayer] >= gameLength) {
             document.querySelector('#name-' + activePlayer).textContent = 'WINNER';
             document.querySelector('.dice').style.display = 'none';
+            document.querySelector('.dice-1').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
             document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
 
