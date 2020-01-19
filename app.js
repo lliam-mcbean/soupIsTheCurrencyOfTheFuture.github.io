@@ -64,6 +64,8 @@ function init() {
     document.querySelector('.player-0-panel').classList.add('active');
     document.querySelector('.player-1-panel').classList.remove('active');
 
+    document.getElementById("score-board").innerHTML = 0;
+
 };
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
@@ -102,6 +104,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 document.querySelector('.btn-input').addEventListener('click', function() {
     
     gameLength = document.getElementById("user-input").value;
+    document.getElementById("score-board").innerHTML = gameLength;
     
 });
 

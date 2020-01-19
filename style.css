@@ -202,3 +202,21 @@ i {
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
     margin: 3px;
 }
+
+.scoreboard {
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #555;
+    background: none;
+    border: none;
+    font-family: Lato;
+    color: rgb(243, 85, 85);
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 300;
+    top: 90px;
+    text-shadow: 2px 0.4px rgb(177, 177, 177);
+}
