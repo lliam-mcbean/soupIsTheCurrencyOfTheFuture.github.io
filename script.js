@@ -294,7 +294,7 @@ stayButton.addEventListener('click', function() {
         let li = document.createElement("li");
 
         cardDealer(hitCard, li);
-        playerCardFunction(hitCard);
+        dealerCardFunction(hitCard);
 
         dealerDisplay.appendChild(li);
 
