@@ -14,41 +14,193 @@ goals:
     -   
 */
 
-function smileClick() {
-    let smile = document.querySelector('.game-start');
-    let gameDisplay = document.querySelector('.wrapper-2');
-    let playerCard1 = document.querySelector('.playercard-1');
-    let playerCard2 = document.querySelector('.playercard-2');
-    let dealer1 = document.querySelector('.dealercard-1');
-    let dealer2 = document.querySelector('.dealercard-2');
+// value variables
 
-    smile.addEventListener('click', function () {
-        smile.style.display = 'none';
-        gameDisplay.style.display = 'block';
+let playerBank = 1000;
+let dealerBank = 1000;
+let playerCardValue = 0;
+let dealerCardValue = 0;
+let cardDeck = [];
+let card1 = 0;
+let card2 = 0;
+let dealerCard1 = 0;
+let dealerCard2 = 0;
 
+// element variables
+
+let smile = document.querySelector('.game-start');
+let gameDisplay = document.querySelector('.wrapper-2');
+let playerDisplay = document.querySelector('.player-cards');
+let dealerDisplay = document.querySelector('.dealer-cards');
+let stayButton = document.querySelector('.btn-stay');
+let hitButton = document.querySelector('.btn-hit');
+let bust = document.querySelector('.bust');
+let dealButton = document.querySelector('.btn-deal');
+let winner = document.querySelector('.winner');
+
+// funcions
+
+function playerCardDisplay(foo) {
+
+    let li = document.createElement("li");
+    let ul = document.querySelector('.player-cards');
+
+    cardDealer(foo, li);
+    playerCardFunction(foo);
+    console.log(playerCardValue);
+    
+    ul.appendChild(li);
+}
+
+function dealerCardDisplay(foo) {
+
+    let li = document.createElement("li");
+    let ul = document.querySelector('.dealer-cards');
+
+    cardDealer(foo, li);
+    dealerCardFunction(foo);
+    console.log(playerCardValue);
+    
+    ul.appendChild(li);
+}
+
+
+function cardDealer(foo, bar) {
+
+    if (3 >= foo) {
+        bar.innerHTML = 'a';
+    } else if (7 >= foo) {
+        bar.innerHTML = '2';
+    } else if (11 >= foo) {
+        bar.innerHTML = '3';
+    } else if (15 >= foo) {
+        bar.innerHTML = '4';
+    } else if (19 >= foo) {
+        bar.innerHTML = '5';
+    } else if (23 >= foo) {
+        bar.innerHTML = '6';
+    } else if (27 >= foo) {
+        bar.innerHTML = '7';
+    } else if (31 >= foo) {
+        bar.innerHTML = '8';
+    } else if (35 >= foo) {
+        bar.innerHTML = '9';
+    } else if (39 >= foo) {
+        bar.innerHTML = '10';
+    } else if (43 >= foo) {
+        bar.innerHTML = 'j';
+    } else if (47 >= foo) {
+        bar.innerHTML = 'q';
+    } else {
+        bar.innerHTML = 'k';
+    }
+}
+
+function playerCardFunction(foo) {
+
+    let bar = 0;
+
+    if (3 >= foo) {
+        bar = 11;
+    } else if (7 >= foo) {
+        bar = 2;
+    } else if (11 >= foo) {
+        bar = 3;
+    } else if (15 >= foo) {
+        bar = 4;
+    } else if (19 >= foo) {
+        bar = 5;
+    } else if (23 >= foo) {
+        bar = 6;
+    } else if (27 >= foo) {
+        bar = 7;
+    } else if (31 >= foo) {
+        bar = 8;
+    } else if (35 >= foo) {
+        bar = 9;
+    } else if (39 >= foo) {
+        bar = 10;
+    } else if (43 >= foo) {
+        bar = 10;
+    } else if (47 >= foo) {
+        bar = 10;
+    } else {
+        bar = 10;
+    }
+
+    playerCardValue += bar;
+}
+
+function dealerCardFunction(foo) {
+
+    let bar = 0;
+
+    if (3 >= foo) {
+        bar = 11;
+    } else if (7 >= foo) {
+        bar = 2;
+    } else if (11 >= foo) {
+        bar = 3;
+    } else if (15 >= foo) {
+        bar = 4;
+    } else if (19 >= foo) {
+        bar = 5;
+    } else if (23 >= foo) {
+        bar = 6;
+    } else if (27 >= foo) {
+        bar = 7;
+    } else if (31 >= foo) {
+        bar = 8;
+    } else if (35 >= foo) {
+        bar = 9;
+    } else if (39 >= foo) {
+        bar = 10;
+    } else if (43 >= foo) {
+        bar = 10;
+    } else if (47 >= foo) {
+        bar = 10;
+    } else {
+        bar = 10;
+    }
+
+    dealerCardValue += bar;
+}
+
+function dealCards() {
+
+    smile.style.display = 'none';
+    gameDisplay.style.display = 'block';
+    bust.style.display = 'none';
+    playerDisplay.style.display = 'flex';
+    dealButton.style.display = 'none';
+    stayButton.style.display = 'flex';
+    hitButton.style.display = 'flex';
+    winner.style.display = 'none';
+
+    playerDisplay.innerHTML = '';
+    dealerDisplay.innerHTML = '';
+    
         // generates array of 52
-            let cardDeck = [];
-
             for (i=1; 52 >= i; i++) {
                 cardDeck.push(i);
             } 
 
 
         // card 1 randomizer
-            let card1 = ((Math.random()*52)-1);
+            card1 = ((Math.random()*52)-1);
             card1 = Math.floor(card1);
             card1 = cardDeck.splice(card1, 1);
 
-            let dealerCard1 = ((Math.random()*51)-1);
+            dealerCard1 = ((Math.random()*51)-1);
             dealerCard1 = Math.floor(dealerCard1);
             dealerCard1 = cardDeck.splice(dealerCard1, 1);
             
         // card 2 randomizer
-            let card2 = ((Math.random()*50)-1);
+            card2 = ((Math.random()*50)-1);
             card2 = Math.floor(card2);
             card2 = cardDeck.splice(card2, 1);
 
-            let dealerCard2 = ((Math.random()*49)-1);
+            dealerCard2 = ((Math.random()*49)-1);
             dealerCard2 = Math.floor(dealerCard2);
             dealerCard2 = cardDeck.splice(dealerCard2, 1);
 
@@ -56,124 +208,122 @@ function smileClick() {
 
             console.log(cardDeck);
 
-        // assign value to the cards displayed
-            if (3 >= card1) {
-                playerCard1.innerHTML = 'a';
-            } else if (7 >= card1) {
-                playerCard1.innerHTML = '2';
-            } else if (11 >= card1) {
-                playerCard1.innerHTML = '3';
-            } else if (15 >= card1) {
-                playerCard1.innerHTML = '4';
-            } else if (19 >= card1) {
-                playerCard1.innerHTML = '5';
-            } else if (23 >= card1) {
-                playerCard1.innerHTML = '6';
-            } else if (27 >= card1) {
-                playerCard1.innerHTML = '7';
-            } else if (31 >= card1) {
-                playerCard1.innerHTML = '8';
-            } else if (35 >= card1) {
-                playerCard1.innerHTML = '9';
-            } else if (39 >= card1) {
-                playerCard1.innerHTML = '10';
-            } else if (43 >= card1) {
-                playerCard1.innerHTML = 'j';
-            } else if (47 >= card1) {
-                playerCard1.innerHTML = 'q';
-            } else {
-                playerCard1.innerHTML = 'k';
-            }
+            // assign value to the cards displayed
 
-            if (3 >= card2) {
-                playerCard2.innerHTML = 'a';
-            } else if (7 >= card2) {
-                playerCard2.innerHTML = '2';
-            } else if (11 >= card2) {
-                playerCard2.innerHTML = '3';
-            } else if (15 >= card2) {
-                playerCard2.innerHTML = '4';
-            } else if (19 >= card2) {
-                playerCard2.innerHTML = '5';
-            } else if (23 >= card2) {
-                playerCard2.innerHTML = '6';
-            } else if (27 >= card2) {
-                playerCard2.innerHTML = '7';
-            } else if (31 >= card2) {
-                playerCard2.innerHTML = '8';
-            } else if (35 >= card2) {
-                playerCard2.innerHTML = '9';
-            } else if (39 >= card2) {
-                playerCard2.innerHTML = '10';
-            } else if (43 >= card2) {
-                playerCard2.innerHTML = 'j';
-            } else if (47 >= card2) {
-                playerCard2.innerHTML = 'q';
-            } else {
-                playerCard2.innerHTML = 'k';
-            }
+            playerCardDisplay(card1);
+            playerCardDisplay(card2);
 
             // dealer card display
 
-            if (3 >= dealerCard1) {
-                dealer1.innerHTML = 'a';
-            } else if (7 >= dealerCard1) {
-                dealer1.innerHTML = '2';
-            } else if (11 >= dealerCard1) {
-                dealer1.innerHTML = '3';
-            } else if (15 >= dealerCard1) {
-                dealer1.innerHTML = '4';
-            } else if (19 >= dealerCard1) {
-                dealer1.innerHTML = '5';
-            } else if (23 >= dealerCard1) {
-                dealer1.innerHTML = '6';
-            } else if (27 >= dealerCard1) {
-                dealer1.innerHTML = '7';
-            } else if (31 >= dealerCard1) {
-                dealer1.innerHTML = '8';
-            } else if (35 >= dealerCard1) {
-                dealer1.innerHTML = '9';
-            } else if (39 >= dealerCard1) {
-                dealer1.innerHTML = '10';
-            } else if (43 >= dealerCard1) {
-                dealer1.innerHTML = 'j';
-            } else if (47 >= dealerCard1) {
-                dealer1.innerHTML = 'q';
-            } else {
-                dealer1.innerHTML = 'k';
-            }
+            dealerCardDisplay(dealerCard1);
+            dealerCardDisplay(dealerCard2);
 
-            if (3 >= dealerCard2) {
-                dealer2.innerHTML = 'a';
-            } else if (7 >= dealerCard2) {
-                dealer2.innerHTML = '2';
-            } else if (11 >= dealerCard2) {
-                dealer2.innerHTML = '3';
-            } else if (15 >= dealerCard2) {
-                dealer2.innerHTML = '4';
-            } else if (19 >= dealerCard2) {
-                dealer2.innerHTML = '5';
-            } else if (23 >= dealerCard2) {
-                dealer2.innerHTML = '6';
-            } else if (27 >= dealerCard2) {
-                dealer2.innerHTML = '7';
-            } else if (31 >= dealerCard2) {
-                dealer2.innerHTML = '8';
-            } else if (35 >= dealerCard2) {
-                dealer2.innerHTML = '9';
-            } else if (39 >= dealerCard2) {
-                dealer2.innerHTML = '10';
-            } else if (43 >= dealerCard2) {
-                dealer2.innerHTML = 'j';
-            } else if (47 >= dealerCard2) {
-                dealer2.innerHTML = 'q';
-            } else {
-                dealer2.innerHTML = 'k';
-            }
+            dealerDisplay.firstChild.style.display = 'none';
 
-
-    });
 };
 
-smileClick();
+
+smile.addEventListener('click', function () {
+
+    dealCards();
+        
+});
+
+
+// hit button function
+hitButton.addEventListener('click', function () {
+
+    // create a hit card
+    let hitCard = ((Math.random()*48)-1);
+    hitCard = Math.floor(hitCard);
+    hitCard = cardDeck.splice(hitCard, 1);
+
+    let li = document.createElement("li");
+    let ul = document.querySelector('.player-cards');
+
+    cardDealer(hitCard, li);
+    playerCardFunction(hitCard);
+    console.log(playerCardValue);
+
+    // busting
+
+    if (playerCardValue > 21) {
+
+        playerDisplay.style.display = 'none';
+        bust.style.display = 'block';
+        hitButton.style.display = 'none';
+        stayButton.style.display = 'none';
+        dealButton.style.display = 'block';
+        dealerDisplay.firstChild.style.display = 'flex';
+        dealButton.className = 'btn-deal';
+
+        winner.style.display = 'flex';
+        winner.innerHTML = 'better luck next time';
+        
+        card1 = 0;
+        card2 = 0;
+        dealerCard1 = 0;
+        dealerCard2 = 0;
+        playerCardValue = 0;
+        dealerCardValue = 0;
+        cardDeck = [];
+    }
+
+    ul.appendChild(li);
+
+});
+
+// redeal function
+dealButton.addEventListener('click', function() {
+    
+    dealCards();
+
+});
+
+// stay button function
+stayButton.addEventListener('click', function() {
+
+    dealerDisplay.firstChild.style.display = 'flex';
+
+    if (dealerCardValue < 14) {
+
+        let hitCard = ((Math.random()*48)-1);
+        hitCard = Math.floor(hitCard);
+        hitCard = cardDeck.splice(hitCard, 1);
+
+        let li = document.createElement("li");
+
+        cardDealer(hitCard, li);
+        playerCardFunction(hitCard);
+
+        dealerDisplay.appendChild(li);
+
+    }
+
+    winner.style.display = 'flex';
+
+    if (playerCardValue > dealerCardValue) {
+
+        winner.innerHTML = 'winner!';
+        
+    } else {
+
+        winner.innerHTML = 'better luck next time';
+
+    }
+
+    card1 = 0;
+    card2 = 0;
+    dealerCard1 = 0;
+    dealerCard2 = 0;
+    playerCardValue = 0;
+    dealerCardValue = 0;
+    cardDeck = [];
+
+    stayButton.style.display = 'none';
+    hitButton.style.display = 'none';
+    dealButton.style.display = 'flex';
+            
+});
+
 

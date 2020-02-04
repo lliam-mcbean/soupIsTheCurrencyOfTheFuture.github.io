@@ -1,5 +1,11 @@
-.card-deck {
-  background: black;
+body {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  height: 100%;
+  width: 100%;
 }
 
 .game-start {
@@ -21,7 +27,6 @@
   font-family: 'Oswald', sans-serif;
   background: transparent;
   border-color: #df0808;
-  background: black;
   border-style: solid;
   border-radius: 15px;
   -webkit-box-shadow: 0px 0px 20px 2px #ff006a;
@@ -74,62 +79,6 @@
           align-items: center;
 }
 
-.player-card-1 {
-  margin: 15px;
-  height: 200px;
-  width: 130px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-transform: uppercase;
-  font-size: 70px;
-  font-family: 'Oswald', sans-serif;
-  background: transparent;
-  border-color: #070bda;
-  background: black;
-  border-style: solid;
-  border-radius: 15px;
-  -webkit-box-shadow: 0px 0px 20px 2px #0ff;
-          box-shadow: 0px 0px 20px 2px #0ff;
-  color: transparent;
-  text-shadow: 0px 0px 20px #070bda;
-  -webkit-text-stroke: 0.1px #070bda;
-}
-
-.player-card-2 {
-  margin: 15px;
-  height: 200px;
-  width: 130px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-transform: uppercase;
-  font-size: 70px;
-  font-family: 'Oswald', sans-serif;
-  background: transparent;
-  border-color: #070bda;
-  background: black;
-  border-style: solid;
-  border-radius: 15px;
-  -webkit-box-shadow: 0px 0px 20px 2px #0ff;
-          box-shadow: 0px 0px 20px 2px #0ff;
-  color: transparent;
-  text-shadow: 0px 0px 20px #070bda;
-  -webkit-text-stroke: 0.1px #070bda;
-}
-
 .player-cards {
   position: relative;
   display: -webkit-box;
@@ -145,6 +94,46 @@
   height: 100%;
   padding: 0px;
   list-style-type: none;
+}
+
+.player-cards li {
+  margin: 15px;
+  height: 200px;
+  width: 130px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: uppercase;
+  font-size: 120px;
+  font-family: 'Oswald', sans-serif;
+  background: transparent;
+  border-color: #070bda;
+  background: black;
+  border-style: solid;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 20px 2px #0ff;
+          box-shadow: 0px 0px 20px 2px #0ff;
+  color: none;
+  text-shadow: -1px -1px 6px #070ada, 1px -1px 6px #070ada, -1px 1px 6px #070ada, 1px 1px 6px #070ada;
+}
+
+.bust {
+  display: none;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 200px;
+  margin-bottom: 0;
+  top: 290px;
+  text-shadow: -1px -1px 6px #da0707, 1px -1px 6px #da0707, -1px 1px 6px #da0707, 1px 1px 6px #da0707;
 }
 
 .wrapper-2 {
@@ -175,9 +164,6 @@
   margin: 15px;
   height: 200px;
   width: 130px;
-}
-
-.dealer-card-1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -188,7 +174,7 @@
       -ms-flex-align: center;
           align-items: center;
   text-transform: uppercase;
-  font-size: 70px;
+  font-size: 120px;
   font-family: 'Oswald', sans-serif;
   background: transparent;
   border-color: #070bda;
@@ -197,34 +183,23 @@
   border-radius: 15px;
   -webkit-box-shadow: 0px 0px 20px 2px #0ff;
           box-shadow: 0px 0px 20px 2px #0ff;
-  color: transparent;
-  text-shadow: 0px 0px 20px #070bda;
-  -webkit-text-stroke: 0.1px #070bda;
+  color: none;
+  text-shadow: -1px -1px 6px #070ada, 1px -1px 6px #070ada, -1px 1px 6px #070ada, 1px 1px 6px #070ada;
 }
 
-.dealer-card-2 {
+.winner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  color: none;
   text-transform: uppercase;
-  font-size: 70px;
   font-family: 'Oswald', sans-serif;
-  background: transparent;
-  border-color: #070bda;
-  background: black;
-  border-style: solid;
-  border-radius: 15px;
-  -webkit-box-shadow: 0px 0px 20px 2px #0ff;
-          box-shadow: 0px 0px 20px 2px #0ff;
-  color: transparent;
-  text-shadow: 0px 0px 20px #070bda;
-  -webkit-text-stroke: 0.1px #070bda;
+  text-transform: uppercase;
+  font-size: 30px;
+  text-shadow: -1px -1px 6px #da0707, 1px -1px 6px #da0707, -1px 1px 6px #da0707, 1px 1px 6px #da0707;
 }
 
 .buttons-container {
@@ -233,6 +208,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  top: 20px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: reverse;
       -ms-flex-flow: column-reverse;
@@ -244,7 +220,7 @@
 }
 
 .btn-stay {
-  width: 100pxpx;
+  width: 100px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -273,6 +249,29 @@
   color: transparent;
   text-shadow: 0px 0px 30px rgba(3, 206, 37, 0.6);
   -webkit-text-stroke: 2px #03ce25;
+}
+
+.btn-deal {
+  display: none;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 0;
+  border: none;
+  background: none;
+  font-size: 50px;
+  text-transform: uppercase;
+  font-family: 'Anton', sans-serif;
+  color: transparent;
+  text-shadow: 0px 0px 30px rgba(15, 19, 245, 0.6);
+  -webkit-text-stroke: 2px #130ff5;
+}
+
+.btn-deal:hover {
+  cursor: pointer;
+  padding-left: 5px;
 }
 
 .btn-stay:hover {
