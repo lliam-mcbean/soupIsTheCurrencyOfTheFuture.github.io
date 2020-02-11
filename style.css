@@ -1,286 +1,109 @@
-body {
+/*// BASE STYLES //*/
+
+html, body{
   height: 100%;
-  width: 100%;
+  width:100%;
+  overflow: hidden;
+  margin: 0;
 }
 
-html {
-  height: 100%;
-  width: 100%;
-}
-
-.game-start {
-  display: block;
+.grass, .sky, .road{
   position: relative;
-  height: 400px;
-  width: 261px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-transform: uppercase;
-  font-size: 230px;
-  font-family: 'Oswald', sans-serif;
-  background: transparent;
-  border-color: #df0808;
-  border-style: solid;
-  border-radius: 15px;
-  -webkit-box-shadow: 0px 0px 20px 2px #ff006a;
-          box-shadow: 0px 0px 20px 2px #ff006a;
-  color: transparent;
-  text-shadow: 0px 0px 20px #df0808;
-  -webkit-text-stroke: 3px #df0808;
 }
 
-.game-start:hover {
-  text-shadow: 0px 0px 20px #070bda;
-  -webkit-text-stroke: 3px #070bda;
-  -webkit-box-shadow: 0px 0px 20px 2px #070bda;
-          box-shadow: 0px 0px 20px 2px #070bda;
-  border-color: #070bda;
-  cursor: pointer;
+.sky{
+  height: 40%;
+  background: skyblue;
 }
 
-.game-start:hover .smile-container {
-  display: block;
+.grass{
+  height: 30%;
+  background: seagreen;
 }
 
-.game-start:hover .frown-container {
-  display: none;
+.road{
+  height: 30%;
+  background: dimgrey;
+  box-sizing: border-box;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid grey;
+  width: 100%;
 }
 
-.smile-container {
-  display: none;
-}
-
-.wrapper {
+.lines{
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 100%;
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100%;
-  width: 100%;
-  background: black;
+  top: 45%;
 }
 
-.wrapper {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
+/*// ELEMENTS TO ANIMATE //*/
 
-.player-cards {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  bottom: 200px;
-  left: 7px;
-  top: 20px;
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  list-style-type: none;
-}
-
-.player-cards li {
-  margin: 15px;
-  height: 200px;
-  width: 130px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-transform: uppercase;
-  font-size: 120px;
-  font-family: 'Oswald', sans-serif;
-  background: transparent;
-  border-color: #070bda;
-  background: black;
-  border-style: solid;
-  border-radius: 15px;
-  -webkit-box-shadow: 0px 0px 20px 2px #0ff;
-          box-shadow: 0px 0px 20px 2px #0ff;
-  color: none;
-  text-shadow: -1px -1px 6px #070ada, 1px -1px 6px #070ada, -1px 1px 6px #070ada, 1px 1px 6px #070ada;
-}
-
-.bust {
-  display: none;
+.mario {
   position: absolute;
-  width: 100%;
-  text-align: center;
-  font-family: 'Oswald', sans-serif;
-  text-transform: uppercase;
-  font-size: 200px;
-  margin-bottom: 0;
-  top: 290px;
-  text-shadow: -1px -1px 6px #da0707, 1px -1px 6px #da0707, -1px 1px 6px #da0707, 1px 1px 6px #da0707;
+  top: -50px;
+  left: 0px;
+  animation:  drive 2.5s both infinite linear,
+              jump 6s 3.5s linear infinite;/* look into cubic-besier for making non linear animations*/
+}
+.luigi {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  animation-name: drive;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: linear;
+}
+.cloud {
+  position: absolute;
+}
+.cloud:nth-child(1) {
+  width: 200px;
+  top: 120px;
+  left: 0;
+  opacity: 0.5;
+  animation: wind 80s linear reverse infinite both;
+}
+.cloud:nth-child(2) {
+  width: 300px;
+  top: 0;
+  left: 0;
+  animation: wind 50s linear reverse infinite both;
+}
+/*// KEYFRAMES //*/
+
+@keyframes drive {
+  from{ transform: translateX(-20vw);}
+  to{ transform: translateX(130vw);}
 }
 
-.wrapper-2 {
-  display: none;
+@keyframes wind {
+  form{left: -10vh;}
+  to{left: 100vh;}
 }
 
-.dealer-cards {
-  display: none;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  top: 15px;
-  left: 7px;
-  width: 100%;
-  height: 100%;
-  padding: 0px;
-  list-style-type: none;
+@keyframes jump {
+  0% {
+    top: -40px;
+  }
+  22%{
+    top: -40px;
+  }
+  25% {
+    top: -100px;
+  }
+  28% {
+    top: -40px;
+  }
+  100% {
+    top: -40px;
+  }
 }
 
-.dealer-cards li {
-  margin: 15px;
-  height: 200px;
-  width: 130px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-transform: uppercase;
-  font-size: 120px;
-  font-family: 'Oswald', sans-serif;
-  background: transparent;
-  border-color: #070bda;
-  background: black;
-  border-style: solid;
-  border-radius: 15px;
-  -webkit-box-shadow: 0px 0px 20px 2px #0ff;
-          box-shadow: 0px 0px 20px 2px #0ff;
-  color: none;
-  text-shadow: -1px -1px 6px #070ada, 1px -1px 6px #070ada, -1px 1px 6px #070ada, 1px 1px 6px #070ada;
-}
 
-.winner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: none;
-  text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
-  text-transform: uppercase;
-  font-size: 30px;
-  text-shadow: -1px -1px 6px #da0707, 1px -1px 6px #da0707, -1px 1px 6px #da0707, 1px 1px 6px #da0707;
-}
 
-.buttons-container {
-  background: none;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  top: 20px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-flow: column-reverse;
-          flex-flow: column-reverse;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-}
-
-.btn-stay {
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  padding: 0;
-  border: none;
-  background: none;
-  font-size: 50px;
-  text-transform: uppercase;
-  font-family: 'Anton', sans-serif;
-  color: transparent;
-  text-shadow: 0px 0px 30px rgba(245, 15, 15, 0.6);
-  -webkit-text-stroke: 2px #f50f0f;
-}
-
-.btn-hit {
-  width: 60px;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-  border: none;
-  background: none;
-  font-size: 50px;
-  text-transform: uppercase;
-  font-family: 'Anton', sans-serif;
-  color: transparent;
-  text-shadow: 0px 0px 30px rgba(3, 206, 37, 0.6);
-  -webkit-text-stroke: 2px #03ce25;
-}
-
-.btn-deal {
-  display: none;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  padding-top: 15px;
-  padding-bottom: 0;
-  border: none;
-  background: none;
-  font-size: 50px;
-  text-transform: uppercase;
-  font-family: 'Anton', sans-serif;
-  color: transparent;
-  text-shadow: 0px 0px 30px rgba(15, 19, 245, 0.6);
-  -webkit-text-stroke: 2px #130ff5;
-}
-
-.btn-deal:hover {
-  cursor: pointer;
-  padding-left: 5px;
-}
-
-.btn-stay:hover {
-  cursor: pointer;
-  padding-left: 5px;
-}
-
-.btn-hit:hover {
-  padding-left: 5px;
-  cursor: pointer;
-}
-/*# sourceMappingURL=style.css.map */
