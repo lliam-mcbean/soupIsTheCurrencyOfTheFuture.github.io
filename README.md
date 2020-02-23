@@ -1,5 +1,5 @@
 # soupIsTheCurrencyOfTheFuture.github.io
 
-a simple mario kart background using CSS3 @keyframes animations
+scrolling animations with javascript
 
   happy rolling
