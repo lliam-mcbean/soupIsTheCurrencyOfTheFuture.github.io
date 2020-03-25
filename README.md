@@ -1,5 +1,5 @@
 # soupIsTheCurrencyOfTheFuture.github.io
 
-scrolling animations with javascript
+3D rendering with p5.js
 
   happy rolling
