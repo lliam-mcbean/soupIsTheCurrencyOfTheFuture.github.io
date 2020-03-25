@@ -1,28 +1,19 @@
 
 
-window.addEventListener('scroll', function () {
-    let scrolledSlowed = window.scrollY / 8;
-    let scrolled = window.scrollY;
-    let scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    let box1 = document.querySelector('.box-1');
-    let box2 = document.querySelector('.box-2');
-    let box3 = document.querySelector('.box-3');
-    
-    
-    box1.style.transform =  'translateX('+ scrolledSlowed +'vw)';
-    box2.style.transform =  'translateX(-'+ scrolledSlowed +'vw)';
-    box3.style.transform =  'translateY(-'+ scrolledSlowed +'vw)';
 
-    console.log(scrollable);
-    console.log(scrolled);
 
-    if (scrolled > 220) {
-        document.querySelector('.box-4').className = 'box-4-active';
-        document.querySelector('.box-5').className = 'box-5-active';
-        document.querySelector('.box-6').className = 'box-6-active';
-    } else {
-        document.querySelector('.box-4-active').className = 'box-4';
-        document.querySelector('.box-5-active').className = 'box-5';
-        document.querySelector('.box-6-active').className = 'box-6';
-    }
-});
+function setup() { 
+    createCanvas(windowWidth, windowHeight, WEBGL);
+} 
+
+function draw() { 
+background(220);
+rectMode(CENTER);
+fill(0, 0, 255);
+translate(mouseX - width/2, mouseY - height/2);
+rotateY(frameCount * 0.01);
+rotateX(frameCount * 0.01);
+rotateZ(frameCount * 0.01);
+box(150, 150, 150);
+
+}
