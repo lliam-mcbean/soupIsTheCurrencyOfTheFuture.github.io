@@ -1,19 +1,38 @@
+let bird;
+let pipes = [];
 
+function setup() {
+    createCanvas(window.innerWidth, window.innerHeight);
+    bird = new Bird();
+    pipes.push(new Pipe());
+}
 
+function draw() {
+    background(0);
+    bird.show();
+    bird.update();
 
+    if (frameCount % 40 === 0) {
+        pipes.push(new Pipe());
+    }
 
-function setup() { 
-    createCanvas(windowWidth, windowHeight, WEBGL);
-} 
+    for (let i = 0; i < pipes.length; i++) {
+        pipes[i].show();
+        pipes[i].update();
 
-function draw() { 
-background(220);
-rectMode(CENTER);
-fill(0, 0, 255);
-translate(mouseX - width/2, mouseY - height/2);
-rotateY(frameCount * 0.01);
-rotateX(frameCount * 0.01);
-rotateZ(frameCount * 0.01);
-box(150, 150, 150);
+        if (pipes[i].hits(bird)) {
+     
+            location.reload();                
+        }
 
+        if (pipes[i].x < 0) {
+            pipes.splice(i, 1);
+        }
+    }
+}
+
+function keyPressed() {
+    if (key == ' ') {
+        bird.up();
+    }
 }
