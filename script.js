@@ -1,4 +1,5 @@
 let bird;
+let value = 0;
 let pipes = [];
 
 function setup() {
@@ -34,5 +35,12 @@ function draw() {
 function keyPressed() {
     if (key == ' ') {
         bird.up();
+    }
+}
+function touchStarted() {
+    if (value === 0) {
+      bird.up();
+    } else {
+      value = 0;
     }
 }
